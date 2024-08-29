@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget{
 }
 class HomeActivity extends StatelessWidget{
   const HomeActivity({super.key});
+  //snackBar message
+  MySnackBar(message,contex){ScaffoldMessenger.of(contex).showSnackBar(SnackBar(content: Text(message)));}
+
   @override
   Widget build (BuildContext context){
     return Scaffold(
@@ -28,9 +31,9 @@ appBar: AppBar(
   toolbarOpacity: 1,
   titleSpacing: 40,
   foregroundColor: Colors.white,
-  actions: [IconButton(onPressed: (){}, icon: Icon(Icons.account_circle)),
-    IconButton(onPressed: (){}, icon: Icon(Icons.add_alert_rounded)),
-    IconButton(onPressed:(){}, icon: Icon(Icons.more_vert)),
+  actions: [IconButton(onPressed: (){MySnackBar("This is Message",context);}, icon: Icon(Icons.account_circle)),
+    IconButton(onPressed: (){MySnackBar("This is Notification", context);}, icon: Icon(Icons.add_alert_rounded)),
+    IconButton(onPressed:(){MySnackBar("This is More Option", context);}, icon: Icon(Icons.more_vert)),
   ],
 ),
 
